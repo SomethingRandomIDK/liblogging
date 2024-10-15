@@ -1,0 +1,20 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-fPIC",
+      "-pedantic",
+      "-Wall",
+      "-Wextra",
+      "-O2",
+      "-Iinclude/",
+      "-c",
+      "-o",
+      "src/log.o",
+      "src/log.c"
+    ],
+    "directory": "/home/mehul/Desktop/Projects/CLogger",
+    "file": "/home/mehul/Desktop/Projects/CLogger/src/log.c",
+    "output": "/home/mehul/Desktop/Projects/CLogger/src/log.o"
+  }
+]
