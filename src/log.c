@@ -63,7 +63,9 @@ int logMessage(const char *msg, SeverityLevel level) {
     strcat(buff, levelMsgs[level]);
     strcat(buff, msg);
     buff[buffLen - 2] = '\n';
-    fputs(buff, logOut);
+    buff[buffLen - 1] = 0;
+
+    fputs(buff,  logOut);
     fflush(logOut);
 
     free(buff);
