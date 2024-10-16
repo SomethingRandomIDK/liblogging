@@ -50,11 +50,17 @@ int logMessage(const char *msg, SeverityLevel level) {
     }
     size_t buffLen = strlen(levelMsgs[level]) + strlen(msg) + 1;
     char *buff = (char *)malloc(sizeof(char) * buffLen);
+    if (!buff) {
+        printf("Malloc failed.\n");
+        return -1;
+    }
     buff[0] = 0;
 
     strcat(buff, levelMsgs[level]);
     strcat(buff, msg);
     fputs(buff, logOut);
+
+    free(buff);
 
     if (pthread_mutex_unlock(&lock) < 0) {
         printf("Mutex unlock failed.\n");
