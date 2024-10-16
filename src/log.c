@@ -10,6 +10,10 @@ static SeverityLevel minLevel = TRACE;
 static pthread_mutex_t lock;
 
 int initLogger(const char *filename, SeverityLevel minimumLevel) {
+    if (logOut) {
+        printf("Logger has been initialized already.\n");
+        return -1;
+    }
     if (filename) {
         logOut = fopen(filename, "a");
         if (!logOut) {
@@ -75,10 +79,10 @@ int closeLogger(void) {
         return -1;
     }
 
-    if (logOut != stdout) {
+    if (logOut != stdout)
         fclose(logOut);
-        logOut = stdout;
-    }
+
+    logOut = NULL;
 
     if (pthread_mutex_destroy(&lock) < 0) {
         printf("Mutex destroy failed.\n");
