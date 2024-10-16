@@ -1,14 +1,12 @@
 #ifndef _LOGGING_H_
 #define _LOGGING_H_
 
-#include <stdio.h>
-
 typedef enum{
-    TRACE,
-    DEBUG,
-    INFO,
-    WARNING,
-    ERROR
+    TRACE = 0,
+    DEBUG = 1,
+    INFO = 2,
+    WARNING = 3,
+    ERROR = 4
 } SeverityLevel;
 
 void initLogger(const char *, SeverityLevel);

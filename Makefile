@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -fPIC -pedantic -Wall -Wextra -O2 -Iinclude/
-LIBFLAGS = -shared
+LIBFLAGS = -shared -lpthread
 
 LIBNAME = liblogging.so
 
