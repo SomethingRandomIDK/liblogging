@@ -9,9 +9,9 @@ typedef enum{
     ERROR = 4
 } SeverityLevel;
 
-void initLogger(const char *, SeverityLevel);
-void logMessage(const char *, SeverityLevel);
-void closeLogger(void);
+int initLogger(const char *, SeverityLevel);
+int logMessage(const char *, SeverityLevel);
+int closeLogger(void);
 
 #endif
 
