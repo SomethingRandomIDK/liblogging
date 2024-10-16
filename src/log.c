@@ -64,6 +64,7 @@ int logMessage(const char *msg, SeverityLevel level) {
     strcat(buff, msg);
     buff[buffLen - 2] = '\n';
     fputs(buff, logOut);
+    fflush(logOut);
 
     free(buff);
 
@@ -79,6 +80,8 @@ int closeLogger(void) {
         printf("Logger has not been initialized.\n");
         return -1;
     }
+
+    fflush(logOut);
 
     if (logOut != stdout)
         fclose(logOut);
