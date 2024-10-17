@@ -91,5 +91,5 @@ written.
 int closeLogger(void);
 ```
 
-This function
+This function closes the log file, if any, and closes the logger.
 
