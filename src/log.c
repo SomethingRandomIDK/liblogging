@@ -6,10 +6,10 @@
 #include <logging/log.h>
 
 static FILE *logOut = NULL;
-static SeverityLevel minLevel = TRACE;
+static LoggingLevel minLevel = TRACE;
 static pthread_mutex_t lock;
 
-int initLogger(const char *filename, SeverityLevel minimumLevel) {
+int initLogger(const char *filename, LoggingLevel minimumLevel) {
     if (logOut) {
         printf("Logger has been initialized already.\n");
         return -1;
@@ -40,7 +40,7 @@ static const char* levelMsgs[] = {
     [ERROR] = "[ERROR] "
 };
 
-int logMessage(const char *msg, SeverityLevel level) {
+int logMessage(const char *msg, LoggingLevel level) {
     if (level < minLevel)
         return 0;
     if (!logOut){
@@ -60,12 +60,12 @@ int logMessage(const char *msg, SeverityLevel level) {
     }
     buff[0] = 0;
 
-    strcat(buff, levelMsgs[level]);
+    strcpy(buff, levelMsgs[level]);
     strcat(buff, msg);
     buff[buffLen - 2] = '\n';
     buff[buffLen - 1] = 0;
 
-    fputs(buff,  logOut);
+    fputs(buff, logOut);
     fflush(logOut);
 
     free(buff);

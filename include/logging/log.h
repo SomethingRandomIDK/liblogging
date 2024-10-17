@@ -7,10 +7,10 @@ typedef enum{
     INFO = 2,
     WARNING = 3,
     ERROR = 4
-} SeverityLevel;
+} LoggingLevel;
 
-int initLogger(const char *, SeverityLevel);
-int logMessage(const char *, SeverityLevel);
+int initLogger(const char *, LoggingLevel);
+int logMessage(const char *, LoggingLevel);
 int closeLogger(void);
 
 #endif

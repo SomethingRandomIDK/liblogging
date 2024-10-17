@@ -69,7 +69,7 @@ when you are compiling.
 ### Available Functions
 
 ```c
-int initLogger(const char *filename, SeverityLevel minimumLevel);
+int initLogger(const char *filename, LoggingLevel minimumLevel);
 ```
 
 This function initializes the logger.  The **filename** is the name of the file
@@ -79,13 +79,17 @@ of logs which will be recorded. Setting this to TRACE will ensure that all logs
 are recorded.
 
 ```c
-int logMessage(const char *msg, SeverityLevel level);
+int logMessage(const char *msg, LoggingLevel level);
 ```
 
 This function logs a message.  The **msg** is the message to be logged.  The
-**level** is the 
+**level** is the logging level of this message.  If the **level** is below the
+minimum level specified in the initLogger() then the message will not be
+written.
 
 ```c
 int closeLogger(void);
 ```
+
+This function
 
